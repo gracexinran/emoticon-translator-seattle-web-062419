@@ -17,9 +17,18 @@ def load_library(file_path)
   hash
 end
 
-def get_japanese_emoticon
+def get_japanese_emoticon(file_path,emoticon)
   # code goes here
-
+  hash = load_library(file_path)
+  if !hash['get_emoticon'].keys.include?(emoticon)
+    return 'sorry'
+  end
+  hash['get_emoticon'].each do |eng,jap|
+    if eng == emoticon
+      return jap 
+    end 
+  end
+    
 end
 
 def get_english_meaning(file_path, emoticon)
