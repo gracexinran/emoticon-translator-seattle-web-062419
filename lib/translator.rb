@@ -1,6 +1,6 @@
 # require modules here
 require 'yaml'
-# require 'pry'
+
 def load_library(file_path)
   file_path = YAML.load_file(file_path)
   # code goes here
@@ -19,8 +19,15 @@ end
 
 def get_japanese_emoticon
   # code goes here
+  
 end
 
-def get_english_meaning
+def get_english_meaning(file_path, emoticon)
   # code goes here
+  hash = load_library(file_path)
+  hash['get_meaning'].each do |emo,mean|
+    if emo == emoticon
+      return mean 
+    end 
+  end
 end
